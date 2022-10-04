@@ -1,5 +1,5 @@
 {
-  "name": "windowed_spinning_array",
+  "name": "windowed-spinning-array",
   "version": "1.0.0",
   "description": "A looped array that can return 'window':arr of defined size.",
   "main": "index.js",

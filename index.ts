@@ -1,4 +1,4 @@
-export class WindowedSpinningArray<T> {
+export default class WindowedSpinningArray<T> {
     private _slidingArr:T[];
 
     constructor( arr:T[], private _size:number, private _startingInd:number = 0 ){

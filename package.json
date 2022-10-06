@@ -1,10 +1,15 @@
 {
-  "name": "windowed-spinning-array",
-  "version": "1.0.0",
+  "name": "@cocacola-lover/windowed-spinning-array",
+  "version": "1.0.2",
   "description": "A looped array that can return 'window':arr of defined size.",
   "main": "index.js",
   "types": "./index.d.ts",
   "type": "module",
+  "keywords": ["Array", "DataStructure"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cocacola-lover/JS-Windowed-Spinning-Array.git"
+  },
   "scripts": {
     "test": "jest",
     "tsc": "tsc"

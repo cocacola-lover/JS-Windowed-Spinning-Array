@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.WindowedSpinningArray = void 0;
-class WindowedSpinningArray {
+export default class WindowedSpinningArray {
     constructor(arr, _size, _startingInd = 0) {
         this._size = _size;
         this._startingInd = _startingInd;
@@ -44,4 +41,3 @@ class WindowedSpinningArray {
     swipeLeft() { this._startingInd = this.prev(this._startingInd); }
     ;
 }
-exports.WindowedSpinningArray = WindowedSpinningArray;

@@ -1,6 +1,6 @@
 {
   "name": "@cocacola-lover/windowed-spinning-array",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A looped array that can return 'window':arr of defined size.",
   "main": "index.js",
   "types": "./index.d.ts",

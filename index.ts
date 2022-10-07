@@ -2,7 +2,7 @@ export default class WindowedSpinningArray<T> {
     private _slidingArr:T[];
 
     constructor( arr:T[], private _size:number, private _startingInd:number = 0 ){
-        if (arr.length < this._size) this.sizeError();
+        if (arr.length < this._size || this._size < 0) this.sizeError();
 
         this._slidingArr = [...arr];
         this._startingInd = this._startingInd % this._slidingArr.length;
@@ -14,7 +14,29 @@ export default class WindowedSpinningArray<T> {
         return i < this._slidingArr.length - 1 ? i + 1 : 0;
     }
 
-    private sizeError() {throw new Error('size cannot be biggger than an array.length');}
+    private sizeError() {throw new Error('size cannot be biggger than an array.length or negative');}
+
+    get length() {return this._slidingArr.length;}
+
+    push(a:T) {this._slidingArr.push(a)};
+    unshift(a:T) {this._slidingArr.unshift(a)};
+    pop() : T | undefined {
+        if (this._slidingArr.length - 1 < this._size) this.sizeError();
+        return this._slidingArr.pop();
+    }
+    shift() : T | undefined {
+        if (this._slidingArr.length - 1 < this._size) this.sizeError();
+        return this._slidingArr.shift();
+    }
+    splice(index: number, howmany:number, args:T[]) {
+        if (this._slidingArr.length - howmany + args.length < this._size) this.sizeError();
+        return this._slidingArr.splice(index, howmany, ...args);
+    }
+
+    changeWindowSize(newSize:number) {
+        if (this._slidingArr.length < newSize || newSize < 0) this.sizeError();
+        this._size = newSize;
+    }
 
     shownBoleanList () {
         const ans:boolean[] = Array<boolean>(this._slidingArr.length).fill(false);

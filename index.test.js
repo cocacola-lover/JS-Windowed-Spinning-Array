@@ -59,3 +59,51 @@ it('checkStartingPosition', () => {
         arr : [7, 1, 2]
     }));
 })
+
+it('checkPush', () => {
+    const arr = new WindowedArr([1, 2, 3, 4, 5, 6, 7], 3, 1);
+    arr.push(3);
+
+    const response = arr.shownBoleanList();
+
+    expect(JSON.stringify(response)).toBe(JSON.stringify([
+        false, true, true, true, false, false, false, false
+    ]));
+});
+
+it('checkPop', () => {
+    const arr = new WindowedArr([1, 2, 3, 4, 5, 6, 7], 3, 1);
+    arr.pop();
+
+    const response = arr.shownBoleanList();
+
+    expect(JSON.stringify(response)).toBe(JSON.stringify([
+        false, true, true, true, false, false,
+    ]));
+});
+
+it('checkLengthProperty', () => {
+    const arr = new WindowedArr([1, 2, 3, 4, 5, 6, 7], 3, 1);
+    expect(arr.length).toBe(7);
+
+    arr.push(3);
+    expect(arr.length).toBe(8);
+})
+
+it('checkSplice', () => {
+    const arr = new WindowedArr([1, 2, 3, 4, 5, 6, 7], 3, 0);
+    expect(
+        JSON.stringify(arr.splice(2, 3, [56]))).toBe(
+            JSON.stringify([3, 4, 5])
+            );
+    
+    const response = arr.getWindow();
+
+    expect(JSON.stringify(response)).toBe(JSON.stringify({
+        before : 7,
+        after : 6,
+        arr : [1, 2, 56]
+    }))
+
+
+})

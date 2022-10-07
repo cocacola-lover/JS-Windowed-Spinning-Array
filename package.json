@@ -12,7 +12,7 @@
   },
   "scripts": {
     "test": "jest",
-    "tsc": "tsc"
+    "tsc": "tsc --declaration"
   },
   "author": "cocacola-lover",
   "license": "ISC",
